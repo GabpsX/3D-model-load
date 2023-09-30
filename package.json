@@ -1,14 +1,18 @@
 {
   "name": "loader3d",
   "version": "1.0.0",
-  "description": "",
+  "description": "O Loader3D é uma aplicação construída utilizando a biblioteca Babylon.js para renderizar gráficos 3D em tempo real",
   "main": "src/index.js",
   "scripts": {
     "start": "electron .",
     "dist": "electron-builder"
   },
-  "author": "",
+  "author": "GABRIEL PS GABPSX",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GabpsX/3D-model-load"
+  },
   "dependencies": {
     "jquery": "^3.7.1",
     "electron-squirrel-startup": "^1.0.0"
@@ -20,7 +24,6 @@
   "build": {
     "appId": "com.gabpsx.loader3d.app",
     "productName": "load3D",
-    "target": "NSIS",
     "asar": true,
     "directories": {
       "output": "release" 
@@ -29,7 +32,7 @@
       "allowToChangeInstallationDirectory": true
     },
     "win": {
-      "target": [{"target": "nsis"}],
+      "target": "msi",
       "icon": "icone.jpg"
     }
   }
