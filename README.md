@@ -1,5 +1,6 @@
-# 3D-model-load
-3D model load
+# Loader3D
+
+## Instalação
 
 ```
 npm install
