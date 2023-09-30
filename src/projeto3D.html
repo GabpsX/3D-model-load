@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Modelagem 3D Projeto</title>
+     <script src="https://cdn.babylonjs.com/babylon.js"></script>
+     <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+     <link rel="stylesheet" href="assetsProjeto/style/min.css">
+     <link rel="stylesheet" href="assetsProjeto/fontawesome/css/all.min.css">
+     <meta http-equiv="cache-control" content="max-age=0" />
+     <meta http-equiv="cache-control" content="no-cache" />
+     <meta http-equiv="expires" content="0" />
+     <meta http-equiv="pragma" content="no-cache" />
+</head>
+<body>    
+     <div class="open-header">
+          <i class="fa-solid fa-bars"></i>
+     </div>
+     
+          <header>
+               <i class="hide-header fa-solid fa-circle-xmark"></i>
+              
+               <div class="model-3d-text">
+                    <h4>Modelagem 3D</h4>
+               </div>
+               <div>
+                    <div class="container">
+                         <div class="divFPS"></div>
+          
+                         <div id="contentQuality">
+                              <div class="open-menu"><i class="fa-solid fa-gear"></i></div>
+                                 <!-- 
+                                 <div>
+                                   <h3>Presets de Resolução:</h3>
+                                   <button id="preset720p">720p</button>
+                                   <button id="preset1080p">1080p</button>
+                                   <button id="preset2.5k">2.5k</button>
+                                   <button id="preset4k">4k</button>
+                                 </div>
+                                
+                                 <div>
+                                   <h3>Qualidade:</h3>
+                                   <button id="qualityLow">Low</button>
+                                   <button id="qualityMedium">Medium</button>
+                                   <button id="qualityHigh">High</button>
+                                   <button id="qualityUltra">Ultra</button>
+                                 </div>
+                                  -->
+                            </div>
+                         <button id="captureButton">Capturar Imagem</button>
+                    </div>
+               </div>
+          </header>
+
+
+          <div>
+               <canvas id="renderCanvas">
+               </canvas>
+          </div>
+          <section class="dialog-menu">
+               <div class="op-head-text">
+                    <h4><i class="fa-solid fa-circle-xmark"></i><span>Opções</span></h4>
+                    <hr>
+               </div>
+
+               <div class="opcoes">
+                    <div class="op-item">
+                         <div class=""><h4>Gráficos</h4><i class="fa-solid fa-angle-right"></i></div>
+                         <!--
+                         <div class=""><h4>Salvar</h4><i class="fa-solid fa-check"></i></div>  -->
+                    </div>
+
+                    <div class="predef">
+                         <h4 id="predef-text">Predefinições</h4>
+                         <div>
+                              <div>
+                                   
+                                   
+                                   <h4>Qualidade</h4>
+                                   <button class="dimi-qualidade"><i class="fa-solid fa-angle-left"></i></button>
+                                   <h4 class="resolu-text">--</h4>
+                                   <button class="aum-qualidade"><i class="fa-solid fa-angle-right"></i></button>
+                                   
+                              </div>
+
+
+                              <div>
+                                  
+                              
+                                   <h4>Textura</h4>
+                                   <button disabled><i class="fa-solid fa-angle-left"></i></button>
+                                   <h4 class="textur-text">--</h4>
+                                   <button disabled><i class="fa-solid fa-angle-right"></i></button>
+                                   
+                              </div>
+
+                              <div>
+                                  
+                                   <h4>Traçados de Raio</h4>
+                                   <button class="desativar-ray"><i class="fa-solid fa-angle-left"></i></button>
+                                   <h4 class="tracado-text">--</h4>
+                                   <button class="ativar-ray"><i class="fa-solid fa-angle-right"></i></button>
+                                   
+                              </div>
+
+
+                              <div>
+                                  
+                                   <h4>FXAA</h4>
+                                   <button class="desativar-fxaa"><i class="fa-solid fa-angle-left"></i></button>
+                                   <h4 class="fxaa-text">--</h4>
+                                   <button class="ativar-fxaa"><i class="fa-solid fa-angle-right"></i></button>
+                                   
+                              </div>
+
+                              <div>
+                                  
+                                   <h4>MSAA</h4>
+                                   <button class="desativar-msaa"><i class="fa-solid fa-angle-left"></i></button>
+                                   <h4 class="msaa-text">--</h4>
+                                   <button class="ativar-msaa"><i class="fa-solid fa-angle-right"></i></button>
+                                   
+                              </div>
+
+                              <div>
+                                  
+                                   <h4>SSAO</h4>
+                                   <button class="desativar-ssao"><i class="fa-solid fa-angle-left"></i></button>
+                                   <h4 class="ssao-text">--</h4>
+                                   <button class="ativar-ssao"><i class="fa-solid fa-angle-right"></i></button>
+                                   
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </section>
+          
+   
+
+
+
+     <script type="module" src="assetsProjeto/src/index.js"></script>
+
+</body>
+
+</html>

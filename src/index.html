@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>loader 3D</title>
+    <link rel="stylesheet" href="source_style_script/main_index_css/index.css" />
+    <link rel="stylesheet" href="source_style_script/fontawesome/css/all.min.css">
+    
+
+    <link rel="stylesheet" href="source_style_script/bootstrapIcons/bootstrap-icons.min.css">
+  </head>
+  <body>
+      <section class="container">
+
+        <div class="wrap_left_container">
+           
+            <div class="left_container">
+              <div class="explorador">
+                <h5>Explorador</h5>
+                <button class="open-menu-selected-op-files">
+                  <i class="bi bi-three-dots"></i>
+                </button>
+             </div>
+              <div class="folder_name">
+
+                <button class="open-menu-selected-op-files">
+
+                  <i class="bi bi-chevron-down"></i>
+                </button>
+                <h5>Model</h5>
+              </div>
+
+              <div class="files_names"></div>
+            </div>
+            
+          </div>
+
+          <div class="resize_left"></div>
+
+          <div class="right_container">
+
+            <!-- 
+            <object class="object_render" data="projeto3D.html"></object>
+            -->
+            </div>
+      </section>
+      <div class="resize_menu"></div>
+      <section class="menu">
+
+        <div class="actions">
+          <button class="reload_scene"><i class="bi bi-arrow-clockwise"></i><span>Recarregar página</span></button>
+          <button class="change_model"><i class="bi bi-box-arrow-up"></i><span>Carregar Modelo 3D</span></button>
+          
+          <button class="import_file" id="importButton"><i class="bi bi-file-earmark-arrow-up"></i><span>Importar arquivo .GLB</span></button>
+
+
+
+        </div>
+
+        <div class="logs"></div>
+      </section>
+      <section class="output">
+        <h5 class="data-de-hoje"></h5>
+      </section>
+  </body>
+
+  <script>
+
+    const wrapLeftContainer = document.querySelector('.wrap_left_container');
+    const resizeLeft = document.querySelector('.resize_left');
+    const objectRender = document.querySelector('.right_container');
+    let isResizing = false;
+  
+    resizeLeft.addEventListener('mousedown', (e) => {
+      isResizing = true;
+      const initialX = e.clientX;
+      const initialWidth = wrapLeftContainer.offsetWidth;
+      objectRender.style.pointerEvents = 'none';
+      document.addEventListener('mousemove', resizeContainer);
+      document.addEventListener('mouseup', stopResize);
+  
+      function resizeContainer(e) {
+        if (isResizing) {
+          const widthDifference = e.clientX - initialX;
+          const newWidth = initialWidth + widthDifference; // Ajuste aqui
+          wrapLeftContainer.style.width = newWidth + 'px';
+        }
+      }
+  
+      function stopResize() {
+        isResizing = false;
+        objectRender.style.pointerEvents = 'auto';
+        document.removeEventListener('mousemove', resizeContainer);
+        document.removeEventListener('mouseup', stopResize);
+      }
+    });
+
+
+    const menu = document.querySelector('.menu');
+    const resizeMenu = document.querySelector('.resize_menu');
+
+    let isResizing2 = false;
+
+    resizeMenu.addEventListener('mousedown', (e) => {
+      isResizing2 = true;
+      const initialY = e.clientY;
+      const initialHeight = menu.offsetHeight;
+      objectRender.style.pointerEvents = 'none';
+      document.addEventListener('mousemove', resizeContainer_);
+      document.addEventListener('mouseup', stopResize_);
+
+      function resizeContainer_(e) {
+        if (isResizing2) {
+          const heightDifference = initialY - e.clientY;
+          const newHeight = initialHeight + heightDifference;
+          menu.style.height = newHeight + 'px';
+        }
+      }
+
+      function stopResize_() {
+        isResizing2 = false;
+        objectRender.style.pointerEvents = 'auto';
+        document.removeEventListener('mousemove', resizeContainer_);
+        document.removeEventListener('mouseup', stopResize_);
+      }
+    });
+
+  
+  </script>
+  
+
+  <script>
+
+    var log = document.querySelector('.logs');
+
+    var msg2 = document.createElement('h5');
+
+
+    msg2.style.color ="red";
+
+
+    ['log','warn'].forEach(function (verb) {
+        console[verb] = (function (method, verb, log) {
+            return function (text) {
+                method(text);
+                var msg = document.createElement('h5');
+          
+                msg.style.color ="red";
+
+                msg.classList.add(verb);
+                msg.textContent = verb + ': ' + text;
+                log.appendChild(msg);
+            };
+        })(console[verb].bind(console), verb, log);
+    });
+    
+
+    window.addEventListener("error", (event) => {
+
+      msg2.textContent = `${log.textContent}${event.type}: ${event.message}\n`;
+      log.appendChild(msg2);
+
+    });
+
+    var dataHoraAtual = new Date();
+
+    var ano = dataHoraAtual.getFullYear();
+    var mes = dataHoraAtual.getMonth() + 1;
+    var dia = dataHoraAtual.getDate();
+    var horas = dataHoraAtual.getHours();
+    var minutos = dataHoraAtual.getMinutes();
+    var segundos = dataHoraAtual.getSeconds();
+    
+    let data = `${dia}/${mes}/${ano} ${horas}:${minutos}:${segundos}`
+    
+    document.querySelector(".data-de-hoje").innerText  = data;
+    console.log(data);
+
+</script>
+
+<script src="main.js"></script>
+
+</html>
